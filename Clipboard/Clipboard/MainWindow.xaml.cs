@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -30,11 +31,11 @@ namespace Clipboard
         private Dictionary<string, string> values = new Dictionary<string, string>();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            string[] lines = System.IO.File.ReadAllLines("ufu.txt");
-            for(int i=0; i<lines.Length; i+=2)
+            foreach(string file_name in Directory.GetFiles(".", "*.txt"))
             {
-                string key = lines[i];
-                string value = lines[i + 1];
+                string line = File.ReadAllLines(file_name)[0];
+                string key = System.IO.Path.GetFileNameWithoutExtension(file_name);
+                string value = line;
                 Button btn = new Button();
                 btn.Content = key;
                 btn.Click += Btn_Click;
