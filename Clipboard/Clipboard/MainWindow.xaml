@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Clipboard" Height="auto" Width="auto" Loaded="Window_Loaded" WindowStyle="ToolWindow" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
     <StackPanel x:Name="grid">
-        <CheckBox x:Name="CheckBox_ontop" Content="CheckBox" Click="CheckBox_ontop_Click"/>
+        <CheckBox x:Name="CheckBox_ontop" Content="on top" Click="CheckBox_ontop_Click"/>
 
     </StackPanel>
 </Window>
