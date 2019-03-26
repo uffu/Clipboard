@@ -31,7 +31,16 @@ namespace Clipboard
         private Dictionary<string, string> values = new Dictionary<string, string>();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            foreach(string file_name in Directory.GetFiles(".", "*.txt"))
+            populateButtons();
+        }
+        private void clearButtons()
+        {
+            values.Clear();
+            grid.Children.Clear();
+        }
+        private void populateButtons()
+        {
+            foreach (string file_name in Directory.GetFiles(".", "*.txt"))
             {
                 string line = File.ReadAllLines(file_name)[0];
                 string key = System.IO.Path.GetFileNameWithoutExtension(file_name);
@@ -56,6 +65,18 @@ namespace Clipboard
         private void CheckBox_ontop_Click(object sender, RoutedEventArgs e)
         {
             Topmost = CheckBox_ontop.IsChecked.Value;
+        }
+
+        private void OpenFolder_Click(object sender, RoutedEventArgs e)
+        {
+            string dir = AppDomain.CurrentDomain.BaseDirectory;
+            System.Diagnostics.Process.Start(dir);
+        }
+
+        private void Refresh_Click(object sender, RoutedEventArgs e)
+        {
+            clearButtons();
+            populateButtons();
         }
     }
 }

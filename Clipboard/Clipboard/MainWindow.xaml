@@ -6,8 +6,21 @@
         xmlns:local="clr-namespace:Clipboard"
         mc:Ignorable="d"
         Title="Clipboard" Height="auto" Width="auto" Loaded="Window_Loaded" WindowStyle="ToolWindow" SizeToContent="WidthAndHeight" ResizeMode="NoResize" Icon="paste.ico">
-    <StackPanel x:Name="grid">
-        <CheckBox x:Name="CheckBox_ontop" Content="on top" Click="CheckBox_ontop_Click"/>
+    <StackPanel Orientation="Vertical">
+        
+        <StackPanel Orientation="Horizontal">
+            <CheckBox x:Name="CheckBox_ontop" Content="on top" Click="CheckBox_ontop_Click" />
+            <Button x:Name="OpenFolder" Width="20" Height="20" Click="OpenFolder_Click" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                <Image Source="/Resources/open.png" Width="20"/>
+            </Button>
+            <Button x:Name="Refresh" Width="20" Height="20" Click="Refresh_Click" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                <Image Source="/Resources/refresh.png" Width="20"/>
+            </Button>
+        </StackPanel>
+        
+        <StackPanel x:Name="grid" Orientation="Vertical">
 
+        </StackPanel>
+        
     </StackPanel>
 </Window>
